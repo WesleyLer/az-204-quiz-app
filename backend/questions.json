@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which of the following is NOT a valid App Service plan pricing tier?",
+    "options": ["Free", "Shared", "PremiumV2", "Elastic Premium"],
+    "answer": "Elastic Premium",
+    "explanation": "Elastic Premium is not a valid App Service plan tier. Valid tiers include Free, Shared, Basic, Standard, PremiumV2, PremiumV3, and Isolated."
+  },
+  {
+    "id": 2,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which deployment slot feature allows zero-downtime deployments?",
+    "options": ["Traffic Manager", "Swap", "Scale-Out", "Backup"],
+    "answer": "Swap",
+    "explanation": "Deployment slot swapping allows you to deploy to a staging slot and then swap it with production, enabling zero-downtime deployments."
+  },
+  {
+    "id": 3,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What setting in App Service allows you to configure environment variables for your app?",
+    "options": ["Application Settings", "Scaling Settings", "Deployment Center", "Authentication"],
+    "answer": "Application Settings",
+    "explanation": "Application Settings in App Service allow you to configure environment variables and connection strings for your application."
+  },
+  {
+    "id": 4,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which App Service scaling mode lets you automatically adjust instances based on CPU usage?",
+    "options": ["Manual Scale", "Auto Scale", "Vertical Scale", "Premium Only"],
+    "answer": "Auto Scale",
+    "explanation": "Auto Scale allows you to automatically scale your App Service based on metrics like CPU usage, memory usage, or custom metrics."
+  },
+  {
+    "id": 5,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which authentication method is NOT supported by App Service Authentication?",
+    "options": ["Microsoft Identity Platform", "Facebook", "Google", "SAML 2.0"],
+    "answer": "SAML 2.0",
+    "explanation": "App Service Authentication supports OAuth 2.0 providers like Microsoft, Facebook, Google, and Twitter, but not SAML 2.0 directly."
+  },
+  {
+    "id": 6,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the maximum number of custom domains you can add to a single App Service app in the Free tier?",
+    "options": ["0", "1", "5", "Unlimited"],
+    "answer": "0",
+    "explanation": "The Free tier does not support custom domains. You need at least the Shared tier to add custom domains."
+  },
+  {
+    "id": 7,
+    "topic": "Functions",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which Azure Functions hosting plan provides unlimited scale and a pay-per-execution billing model?",
+    "options": ["Dedicated", "Consumption", "Premium", "App Service"],
+    "answer": "Consumption",
+    "explanation": "The Consumption plan provides unlimited scale and charges only for the time your functions execute."
+  },
+  {
+    "id": 8,
+    "topic": "Functions",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the maximum execution timeout for Azure Functions in the Consumption plan?",
+    "options": ["5 minutes", "10 minutes", "30 minutes", "Unlimited"],
+    "answer": "10 minutes",
+    "explanation": "Functions in the Consumption plan have a maximum execution timeout of 10 minutes (600 seconds)."
+  },
+  {
+    "id": 9,
+    "topic": "Storage",
+    "skillArea": "Develop for Azure storage",
+    "question": "What type of Azure Storage should you use for storing large binary files like images or videos?",
+    "options": ["Table Storage", "Queue Storage", "Blob Storage", "File Storage"],
+    "answer": "Blob Storage",
+    "explanation": "Blob Storage is optimized for storing massive amounts of unstructured data like images, videos, and documents."
+  },
+  {
+    "id": 10,
+    "topic": "Storage",
+    "skillArea": "Develop for Azure storage",
+    "question": "Which Blob Storage access tier has the lowest storage cost but highest access cost?",
+    "options": ["Hot", "Cool", "Archive", "Premium"],
+    "answer": "Archive",
+    "explanation": "Archive tier has the lowest storage costs but highest access costs and longest rehydration time."
+  },
+  {
+    "id": 11,
+    "topic": "Cosmos DB",
+    "skillArea": "Develop for Azure storage",
+    "question": "Which consistency level in Cosmos DB provides the strongest consistency guarantees?",
+    "options": ["Eventual", "Session", "Bounded Staleness", "Strong"],
+    "answer": "Strong",
+    "explanation": "Strong consistency provides linearizability guarantees, ensuring reads receive the most recent committed version of an item."
+  },
+  {
+    "id": 12,
+    "topic": "Key Vault",
+    "skillArea": "Implement Azure security",
+    "question": "What is the maximum size of a secret value that can be stored in Azure Key Vault?",
+    "options": ["25 KB", "50 KB", "100 KB", "1 MB"],
+    "answer": "25 KB",
+    "explanation": "Azure Key Vault secrets have a maximum size limit of 25 KB for the secret value."
+  }
+]

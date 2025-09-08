@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(npm run install-all:*)",
+      "Bash(npm run dev-backend:*)",
+      "Bash(npm run dev-frontend:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
