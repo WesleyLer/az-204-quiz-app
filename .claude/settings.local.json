@@ -4,7 +4,9 @@
       "Bash(mkdir:*)",
       "Bash(npm run install-all:*)",
       "Bash(npm run dev-backend:*)",
-      "Bash(npm run dev-frontend:*)"
+      "Bash(npm run dev-frontend:*)",
+      "WebSearch",
+      "WebFetch(domain:www.examtopics.com)"
     ],
     "deny": [],
     "ask": []

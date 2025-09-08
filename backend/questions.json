@@ -39,10 +39,10 @@
     "id": 5,
     "topic": "App Service",
     "skillArea": "Develop Azure compute solutions",
-    "question": "Which authentication method is NOT supported by App Service Authentication?",
-    "options": ["Microsoft Identity Platform", "Facebook", "Google", "SAML 2.0"],
-    "answer": "SAML 2.0",
-    "explanation": "App Service Authentication supports OAuth 2.0 providers like Microsoft, Facebook, Google, and Twitter, but not SAML 2.0 directly."
+    "question": "What is the minimum App Service plan tier required to enable deployment slots?",
+    "options": ["Free", "Shared", "Basic", "Standard"],
+    "answer": "Standard",
+    "explanation": "Deployment slots are available in Standard, Premium, and Isolated tiers. Basic, Shared, and Free tiers do not support deployment slots."
   },
   {
     "id": 6,
@@ -55,6 +55,402 @@
   },
   {
     "id": 7,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which authentication method is supported by App Service Easy Auth?",
+    "options": ["SAML 2.0", "Microsoft Identity Platform", "LDAP", "Kerberos"],
+    "answer": "Microsoft Identity Platform",
+    "explanation": "App Service Easy Auth supports OAuth 2.0 providers including Microsoft Identity Platform, Google, Facebook, and Twitter."
+  },
+  {
+    "id": 8,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What happens to application settings during a deployment slot swap?",
+    "options": ["All settings are swapped", "No settings are swapped", "Only slot-specific settings stay", "Only connection strings are swapped"],
+    "answer": "Only slot-specific settings stay",
+    "explanation": "During slot swap, most settings are swapped, but slot-specific settings (marked as deployment slot settings) remain with their respective slots."
+  },
+  {
+    "id": 9,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which feature allows you to route a percentage of traffic to a deployment slot for testing?",
+    "options": ["Load Balancer", "Traffic Routing", "A/B Testing", "Blue-Green Deployment"],
+    "answer": "Traffic Routing",
+    "explanation": "Traffic routing in deployment slots allows you to route a percentage of traffic to different slots for gradual rollout and A/B testing."
+  },
+  {
+    "id": 10,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the default scaling limit for App Service instances in the Basic tier?",
+    "options": ["1 instance", "3 instances", "10 instances", "20 instances"],
+    "answer": "3 instances",
+    "explanation": "The Basic tier supports manual scaling up to 3 instances. Auto-scaling is not available in the Basic tier."
+  },
+  {
+    "id": 11,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which configuration element in web.config helps ensure smooth slot swaps?",
+    "options": ["connectionStrings", "applicationInitialization", "httpModules", "compilation"],
+    "answer": "applicationInitialization",
+    "explanation": "The applicationInitialization element ensures your app is warmed up before receiving traffic during slot swaps, preventing cold start issues."
+  },
+  {
+    "id": 12,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the maximum number of deployment slots available in the Standard tier?",
+    "options": ["5", "10", "15", "20"],
+    "answer": "5",
+    "explanation": "The Standard tier supports up to 5 deployment slots including production. Premium tiers support up to 20 slots."
+  },
+  {
+    "id": 13,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which App Service feature automatically restarts your app when it becomes unresponsive?",
+    "options": ["Health Check", "Auto Heal", "Always On", "Application Insights"],
+    "answer": "Auto Heal",
+    "explanation": "Auto Heal automatically restarts your app based on predefined rules when issues like high memory usage or unresponsive requests are detected."
+  },
+  {
+    "id": 14,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is required to enable HTTPS-only access for an App Service?",
+    "options": ["SSL certificate", "Custom domain", "Premium tier", "TLS/SSL setting"],
+    "answer": "TLS/SSL setting",
+    "explanation": "You can enable HTTPS-only access through the TLS/SSL settings in any App Service tier, even with the default *.azurewebsites.net domain."
+  },
+  {
+    "id": 15,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which deployment method provides the fastest deployment for large applications?",
+    "options": ["Local Git", "GitHub Actions", "ZIP Deploy", "Run from Package"],
+    "answer": "Run from Package",
+    "explanation": "Run from Package deploys by mounting the ZIP file directly, avoiding file extraction and providing faster deployment for large applications."
+  },
+  {
+    "id": 16,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the purpose of the Always On setting in App Service?",
+    "options": ["Enable auto-scaling", "Prevent app from sleeping", "Enable HTTPS", "Configure custom domains"],
+    "answer": "Prevent app from sleeping",
+    "explanation": "Always On prevents your app from being unloaded when idle, ensuring better response times for the first request after idle periods."
+  },
+  {
+    "id": 17,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which scaling metric is NOT available for App Service auto-scaling rules?",
+    "options": ["CPU Percentage", "Memory Percentage", "HTTP Queue Length", "Disk Space"],
+    "answer": "Disk Space",
+    "explanation": "App Service auto-scaling supports CPU, memory, HTTP queue length, and custom metrics, but not disk space as a scaling metric."
+  },
+  {
+    "id": 18,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What happens when you delete a deployment slot?",
+    "options": ["App stops working", "Settings are merged", "Slot is archived", "Resources are released"],
+    "answer": "Resources are released",
+    "explanation": "When you delete a deployment slot, all its resources are released and the slot configuration is permanently removed."
+  },
+  {
+    "id": 19,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which App Service plan type provides network isolation?",
+    "options": ["Basic", "Standard", "Premium", "Isolated"],
+    "answer": "Isolated",
+    "explanation": "The Isolated tier provides network isolation by running in dedicated Azure App Service Environments (ASE)."
+  },
+  {
+    "id": 20,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the maximum file size for ZIP deployment in App Service?",
+    "options": ["100 MB", "512 MB", "1 GB", "2 GB"],
+    "answer": "1 GB",
+    "explanation": "ZIP deployment in App Service supports packages up to 1 GB in size through the Kudu API."
+  },
+  {
+    "id": 21,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which feature allows you to test new code with a subset of users?",
+    "options": ["Blue-Green Deployment", "Canary Deployment", "Rolling Deployment", "Shadow Deployment"],
+    "answer": "Canary Deployment",
+    "explanation": "Canary deployment uses traffic routing to send a percentage of users to the new version while maintaining the stable version for others."
+  },
+  {
+    "id": 22,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the default timeout for HTTP requests in App Service?",
+    "options": ["30 seconds", "230 seconds", "300 seconds", "600 seconds"],
+    "answer": "230 seconds",
+    "explanation": "The default HTTP request timeout in App Service is 230 seconds (approximately 4 minutes) and cannot be increased."
+  },
+  {
+    "id": 23,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which authentication flow is recommended for server-side web applications?",
+    "options": ["Implicit Flow", "Authorization Code Flow", "Client Credentials Flow", "Device Code Flow"],
+    "answer": "Authorization Code Flow",
+    "explanation": "Authorization Code Flow is the recommended and most secure flow for server-side web applications as it keeps tokens secure."
+  },
+  {
+    "id": 24,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What happens to WebJobs when you swap deployment slots?",
+    "options": ["WebJobs are swapped", "WebJobs remain with slots", "WebJobs are deleted", "WebJobs are duplicated"],
+    "answer": "WebJobs remain with slots",
+    "explanation": "WebJobs are tied to their specific deployment slots and do not move during slot swaps to prevent disruption of background processes."
+  },
+  {
+    "id": 25,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which logging destination provides the longest retention period?",
+    "options": ["File System", "Blob Storage", "Event Hub", "Log Analytics"],
+    "answer": "Blob Storage",
+    "explanation": "Blob Storage can retain App Service logs indefinitely, while File System logging has limited retention (12 hours to 7 days)."
+  },
+  {
+    "id": 26,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the minimum number of instances required for auto-scaling?",
+    "options": ["0", "1", "2", "3"],
+    "answer": "1",
+    "explanation": "Auto-scaling requires a minimum of 1 instance to ensure your application remains available during scaling operations."
+  },
+  {
+    "id": 27,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which setting determines the .NET Framework version for your App Service?",
+    "options": ["Application Settings", "General Settings", "Path Mappings", "Default Documents"],
+    "answer": "General Settings",
+    "explanation": "The .NET Framework version is configured in the General Settings section of your App Service configuration."
+  },
+  {
+    "id": 28,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the purpose of the SCM site in App Service?",
+    "options": ["User interface", "Development tools", "Database access", "File management"],
+    "answer": "Development tools",
+    "explanation": "The SCM (Source Control Manager) site provides access to Kudu, which offers development tools, console access, and deployment utilities."
+  },
+  {
+    "id": 29,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which connection string type is specifically for Entity Framework?",
+    "options": ["SQLServer", "SQLAzure", "Custom", "MySql"],
+    "answer": "SQLAzure",
+    "explanation": "SQLAzure is the connection string type designed for Azure SQL databases and Entity Framework integration."
+  },
+  {
+    "id": 30,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What happens when you enable 'Run From Package' deployment?",
+    "options": ["Files are extracted", "Package is mounted", "Code is compiled", "Database is created"],
+    "answer": "Package is mounted",
+    "explanation": "Run From Package mounts the ZIP file as a read-only file system, improving cold start performance and deployment speed."
+  },
+  {
+    "id": 31,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which tier supports VNet integration for outbound connections?",
+    "options": ["Basic and above", "Standard and above", "Premium and above", "Isolated only"],
+    "answer": "Standard and above",
+    "explanation": "VNet integration for outbound connections is available in Standard, Premium, and Isolated tiers, but not in Basic, Shared, or Free tiers."
+  },
+  {
+    "id": 32,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the maximum number of scale-out rules you can configure?",
+    "options": ["5", "10", "15", "20"],
+    "answer": "10",
+    "explanation": "You can configure up to 10 scale-out rules and 10 scale-in rules per App Service plan for comprehensive auto-scaling scenarios."
+  },
+  {
+    "id": 33,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which deployment slot setting prevents a setting from being swapped?",
+    "options": ["Sticky Setting", "Slot Setting", "Deployment Setting", "Environment Setting"],
+    "answer": "Deployment Setting",
+    "explanation": "Settings marked as 'Deployment slot setting' (sticky) remain with their respective slots and are not swapped during slot operations."
+  },
+  {
+    "id": 34,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the default scale condition evaluation frequency?",
+    "options": ["1 minute", "5 minutes", "10 minutes", "15 minutes"],
+    "answer": "5 minutes",
+    "explanation": "Auto-scaling rules are evaluated every 5 minutes by default, though this can be adjusted based on your scaling requirements."
+  },
+  {
+    "id": 35,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which authentication token has the longest default lifetime?",
+    "options": ["Access Token", "ID Token", "Refresh Token", "Session Token"],
+    "answer": "Refresh Token",
+    "explanation": "Refresh tokens typically have the longest lifetime (days to months) and are used to obtain new access tokens without re-authentication."
+  },
+  {
+    "id": 36,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What happens when you exceed the file system quota in App Service?",
+    "options": ["App crashes", "New files rejected", "Oldest files deleted", "Performance degrades"],
+    "answer": "New files rejected",
+    "explanation": "When the file system quota is exceeded, attempts to write new files will fail, but existing functionality continues to work."
+  },
+  {
+    "id": 37,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which feature allows you to configure custom startup commands?",
+    "options": ["Application Settings", "General Settings", "Startup Command", "Path Mappings"],
+    "answer": "General Settings",
+    "explanation": "Custom startup commands are configured in the General Settings section, allowing you to specify how your application should start."
+  },
+  {
+    "id": 38,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the purpose of health check endpoints in App Service?",
+    "options": ["Monitor performance", "Detect unhealthy instances", "Log requests", "Manage certificates"],
+    "answer": "Detect unhealthy instances",
+    "explanation": "Health check endpoints allow App Service to detect unhealthy instances and replace them automatically to maintain application availability."
+  },
+  {
+    "id": 39,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which deployment method is best for continuous integration?",
+    "options": ["ZIP Deploy", "FTP", "GitHub Actions", "Local Git"],
+    "answer": "GitHub Actions",
+    "explanation": "GitHub Actions provides robust CI/CD capabilities with automated testing, building, and deployment workflows for continuous integration."
+  },
+  {
+    "id": 40,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the maximum retention period for diagnostic logs in the file system?",
+    "options": ["12 hours", "3 days", "7 days", "30 days"],
+    "answer": "7 days",
+    "explanation": "File system diagnostic logs can be retained for a maximum of 7 days before being automatically deleted to prevent storage issues."
+  },
+  {
+    "id": 41,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which scaling approach is recommended for predictable load patterns?",
+    "options": ["Reactive scaling", "Proactive scaling", "Manual scaling", "Scheduled scaling"],
+    "answer": "Scheduled scaling",
+    "explanation": "Scheduled scaling allows you to proactively scale based on known patterns, providing better performance and cost optimization for predictable loads."
+  },
+  {
+    "id": 42,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the default HTTP version supported by App Service?",
+    "options": ["HTTP/1.0", "HTTP/1.1", "HTTP/2.0", "HTTP/3.0"],
+    "answer": "HTTP/2.0",
+    "explanation": "App Service supports HTTP/2.0 by default, providing improved performance through multiplexing and server push capabilities."
+  },
+  {
+    "id": 43,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which setting controls whether your app can be debugged remotely?",
+    "options": ["Remote Debugging", "Debug Mode", "General Settings", "Application Settings"],
+    "answer": "General Settings",
+    "explanation": "Remote debugging is enabled through the General Settings configuration, allowing Visual Studio to attach to your running app."
+  },
+  {
+    "id": 44,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What happens when you enable 'Managed Identity' for App Service?",
+    "options": ["Creates service principal", "Assigns admin rights", "Enables encryption", "Configures firewall"],
+    "answer": "Creates service principal",
+    "explanation": "Managed Identity creates a service principal in Azure AD that can be used to authenticate to other Azure services without storing credentials."
+  },
+  {
+    "id": 45,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which tool provides the most detailed deployment logs?",
+    "options": ["Azure Portal", "Kudu Console", "Azure CLI", "Visual Studio"],
+    "answer": "Kudu Console",
+    "explanation": "The Kudu console provides the most detailed deployment logs and diagnostic information for troubleshooting deployment issues."
+  },
+  {
+    "id": 46,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the recommended approach for storing sensitive configuration data?",
+    "options": ["Application Settings", "Connection Strings", "Key Vault", "Environment Variables"],
+    "answer": "Key Vault",
+    "explanation": "Azure Key Vault is the recommended secure storage solution for sensitive data like passwords, certificates, and API keys."
+  },
+  {
+    "id": 47,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which feature allows you to route requests based on client location?",
+    "options": ["Traffic Manager", "Application Gateway", "Front Door", "Load Balancer"],
+    "answer": "Front Door",
+    "explanation": "Azure Front Door provides global routing capabilities, allowing you to route requests based on client location and other criteria."
+  },
+  {
+    "id": 48,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the maximum number of custom handlers you can configure?",
+    "options": ["5", "10", "20", "Unlimited"],
+    "answer": "20",
+    "explanation": "App Service allows up to 20 custom handlers to be configured for different file extensions and URL patterns."
+  },
+  {
+    "id": 49,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "Which authentication method provides the highest security for API access?",
+    "options": ["API Key", "Basic Authentication", "OAuth 2.0", "Certificate Authentication"],
+    "answer": "Certificate Authentication",
+    "explanation": "Certificate-based authentication provides the highest security by using cryptographic certificates for mutual authentication."
+  },
+  {
+    "id": 50,
+    "topic": "App Service",
+    "skillArea": "Develop Azure compute solutions",
+    "question": "What is the purpose of the 'Warm up' feature in deployment slots?",
+    "options": ["Compile code", "Initialize cache", "Load configuration", "Prepare instance"],
+    "answer": "Prepare instance",
+    "explanation": "The warm-up feature ensures that application instances are fully initialized and ready to serve traffic before becoming active during slot swaps."
+  },
+  {
+    "id": 51,
     "topic": "Functions",
     "skillArea": "Develop Azure compute solutions",
     "question": "Which Azure Functions hosting plan provides unlimited scale and a pay-per-execution billing model?",
@@ -63,7 +459,7 @@
     "explanation": "The Consumption plan provides unlimited scale and charges only for the time your functions execute."
   },
   {
-    "id": 8,
+    "id": 52,
     "topic": "Functions",
     "skillArea": "Develop Azure compute solutions",
     "question": "What is the maximum execution timeout for Azure Functions in the Consumption plan?",
@@ -72,7 +468,7 @@
     "explanation": "Functions in the Consumption plan have a maximum execution timeout of 10 minutes (600 seconds)."
   },
   {
-    "id": 9,
+    "id": 53,
     "topic": "Storage",
     "skillArea": "Develop for Azure storage",
     "question": "What type of Azure Storage should you use for storing large binary files like images or videos?",
@@ -81,7 +477,7 @@
     "explanation": "Blob Storage is optimized for storing massive amounts of unstructured data like images, videos, and documents."
   },
   {
-    "id": 10,
+    "id": 54,
     "topic": "Storage",
     "skillArea": "Develop for Azure storage",
     "question": "Which Blob Storage access tier has the lowest storage cost but highest access cost?",
@@ -90,7 +486,7 @@
     "explanation": "Archive tier has the lowest storage costs but highest access costs and longest rehydration time."
   },
   {
-    "id": 11,
+    "id": 55,
     "topic": "Cosmos DB",
     "skillArea": "Develop for Azure storage",
     "question": "Which consistency level in Cosmos DB provides the strongest consistency guarantees?",
@@ -99,7 +495,7 @@
     "explanation": "Strong consistency provides linearizability guarantees, ensuring reads receive the most recent committed version of an item."
   },
   {
-    "id": 12,
+    "id": 56,
     "topic": "Key Vault",
     "skillArea": "Implement Azure security",
     "question": "What is the maximum size of a secret value that can be stored in Azure Key Vault?",
