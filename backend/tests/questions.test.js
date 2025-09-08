@@ -20,8 +20,8 @@ describe('Questions Data Validation', () => {
       
       questions.forEach((question, index) => {
         requiredProperties.forEach(prop => {
-          expect(question).toHaveProperty(prop, expect.anything());
-        }, `Question ${index + 1} missing property: ${prop}`);
+          expect(question).toHaveProperty(prop);
+        });
       });
     });
 

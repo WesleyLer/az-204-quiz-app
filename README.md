@@ -190,17 +190,17 @@ cd frontend && npm test
 
 ## 📚 Question Bank
 
-### Current Questions: 12 total
+### Current Questions: 56 total
 
 **Topics Coverage:**
-- **App Service** (6 questions): Deployment slots, scaling, authentication, custom domains
+- **App Service** (50 questions): Deployment slots, scaling, authentication, custom domains, pricing tiers, traffic routing, auto-heal, HTTPS configuration, deployment methods, Always On, network isolation, ZIP deployment, canary deployment, WebJobs, logging, auto-scaling, authentication flows, health checks, managed identity, Key Vault integration, and more
 - **Azure Functions** (2 questions): Hosting plans, execution timeouts
 - **Storage** (2 questions): Blob storage, access tiers
 - **Cosmos DB** (1 question): Consistency levels
 - **Key Vault** (1 question): Secret size limits
 
 ### AZ-204 Exam Skill Areas Covered:
-- ✅ Develop Azure compute solutions (8 questions)
+- ✅ Develop Azure compute solutions (52 questions)
 - ✅ Develop for Azure storage (3 questions)
 - ✅ Implement Azure security (1 question)
 - ⏳ Connect to and consume Azure services (Future phase)

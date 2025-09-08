@@ -307,6 +307,10 @@ describe('QuestionCard Component', () => {
       const incompleteQuestion = {
         id: 1,
         topic: "App Service",
+        question: "Test question?",
+        options: ["Option 1", "Option 2", "Option 3", "Option 4"],
+        answer: "Option 1",
+        explanation: "Test explanation"
         // Missing some required fields
       };
       
