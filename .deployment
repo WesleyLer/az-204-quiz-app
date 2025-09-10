@@ -1,0 +1,5 @@
+[config]
+# For deploying the entire repo, use SCM_DO_BUILD_DURING_DEPLOYMENT=true
+# For backend deployment, create this file in the backend repo root
+# For frontend deployment, create this file in the frontend repo root
+SCM_DO_BUILD_DURING_DEPLOYMENT=true

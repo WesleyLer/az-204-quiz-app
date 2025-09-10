@@ -9,7 +9,8 @@
       "WebFetch(domain:www.examtopics.com)",
       "Bash(npm run test-all:*)",
       "Bash(npm test)",
-      "Bash(npm test:*)"
+      "Bash(npm test:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []
