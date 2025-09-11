@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import QuestionCard from './components/QuestionCard';
 
-const API_BASE_URL = 'az204-quiz-api-gwg4byf3a6d6gdcp.australiasoutheast-01.azurewebsites.net' || 'http://localhost:3001';
+const API_BASE_URL = 'http://az204-quiz-api-gwg4byf3a6d6gdcp.australiasoutheast-01.azurewebsites.net' || 'http://localhost:3001';
 
 function App() {
   const [currentQuestion, setCurrentQuestion] = useState(null);
