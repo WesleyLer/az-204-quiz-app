@@ -1,8 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const fs = require('fs');
-const path = require('path');
 require('dotenv').config();
+const sql = require('mssql');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -10,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-const sql = require('mssql')
+// ✅ Database config
 const dbConfig = {
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -20,56 +19,59 @@ const dbConfig = {
     encrypt: true,
     trustServerCertificate: false
   }
-}
+};
 
-let poolPromise = sql.Connect(dbConfig)
-  .then (pool => {
+// ✅ Create a single connection pool
+const poolPromise = sql.connect(dbConfig)
+  .then(pool => {
     console.log('Connected to Azure SQL Database');
-    return pool
+    return pool;
   })
-  .catch (err => {
-    console.error('Database connection failed: ', err);
+  .catch(err => {
+    console.error('Database connection failed:', err);
     process.exit(1);
-  })
-// let questions = [];
+  });
 
-// try {
-//   const questionsData = fs.readFileSync(path.join(__dirname, 'questions.json'), 'utf8');
-//   questions = JSON.parse(questionsData);
-//   console.log(`Loaded ${questions.length} questions`);
-// } catch (error) {
-//   console.error('Error loading questions:', error);
-// }
+/* ------------------ ROUTES ------------------ */
 
-app.get('/api/questions', (req, res) => {
+// All questions
+app.get('/api/questions', async (req, res) => {
   try {
-    res.json(questions);
     const pool = await poolPromise;
     const result = await pool.request()
-      .query('SELECT id, topic, skillArea, question, options, correctAnswer, explanation FROM dbo.QUESTIONS');
+      .query(`
+        SELECT id, topic, skillArea, question, options, correctAnswer, explanation
+        FROM dbo.QUESTIONS
+      `);
+
     const rows = result.recordset.map(row => ({
       ...row,
-      options: JSON.parse(row.options) // Parse JSON string to JS array
-    }))
-    res.json(rows)
+      options: JSON.parse(row.options) // convert NVARCHAR JSON → JS array
+    }));
+
+    res.json(rows);
   } catch (error) {
     console.error('Error fetching questions:', error);
     res.status(500).json({ error: 'Failed to fetch questions' });
   }
 });
 
-app.get('/api/questions/random', (req, res) => {
+// Random question
+app.get('/api/questions/random', async (req, res) => {
   try {
     const pool = await poolPromise;
     const result = await pool.request()
-      .query('SELECT TOP 1 id, topic, skillArea, question, options, correctAnswer, explanation FROM dbo.QUESTIONS ORDER BY NEWID()')
-    if (result.recordset.length === 0 {
-      return res.status(404).json({
-        error: 'No questions found'
-      })
+      .query(`
+        SELECT TOP 1 id, topic, skillArea, question, options, correctAnswer, explanation
+        FROM dbo.QUESTIONS
+        ORDER BY NEWID()
+      `);
+
+    if (result.recordset.length === 0) {
+      return res.status(404).json({ error: 'No questions found' });
     }
 
-    const randomQuestions = result.recordset[0];
+    const randomQuestion = result.recordset[0];
     randomQuestion.options = JSON.parse(randomQuestion.options);
     res.json(randomQuestion);
   } catch (error) {
@@ -78,24 +80,27 @@ app.get('/api/questions/random', (req, res) => {
   }
 });
 
-app.get('/api/questions/topic/:topic', (req, res) => {
+// Topic filter
+app.get('/api/questions/topic/:topic', async (req, res) => {
   try {
     const pool = await poolPromise;
     const result = await pool.request()
       .input('topic', sql.NVarChar, req.params.topic)
       .query(`
-        SELECT id, topic, skillArea, question, options, answer, explanation
+        SELECT id, topic, skillArea, question, options, correctAnswer, explanation
         FROM dbo.QUESTIONS
         WHERE LOWER(topic) = LOWER(@topic)
       `);
 
-    if (result.recordset.length === 0)
+    if (result.recordset.length === 0) {
       return res.status(404).json({ error: `No questions found for topic: ${req.params.topic}` });
+    }
 
     const rows = result.recordset.map(row => ({
       ...row,
       options: JSON.parse(row.options)
     }));
+
     res.json(rows);
   } catch (error) {
     console.error('Error fetching questions by topic:', error);
@@ -103,10 +108,13 @@ app.get('/api/questions/topic/:topic', (req, res) => {
   }
 });
 
-app.get('/api/health', (req, res) => {
+// Health check
+app.get('/api/health', async (req, res) => {
   try {
     const pool = await poolPromise;
-    const result = await pool.request().query('SELECT COUNT(*) AS count FROM dbo.QUESTIONS');
+    const result = await pool.request()
+      .query('SELECT COUNT(*) AS count FROM dbo.QUESTIONS');
+
     res.json({
       status: 'OK',
       timestamp: new Date().toISOString(),
@@ -118,8 +126,9 @@ app.get('/api/health', (req, res) => {
   }
 });
 
+// Root
 app.get('/', (req, res) => {
-  res.json({ 
+  res.json({
     message: 'AZ-204 Quiz API',
     version: '1.0.0',
     endpoints: {
@@ -132,7 +141,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`AZ-204 Quiz API server running on port ${PORT}`);
-  console.log(`Health check: http://localhost:${PORT}/api/health`);
-  console.log(`Questions endpoint: http://localhost:${PORT}/api/questions`);
+  console.log(`AZ-204 Quiz API running on port ${PORT}`);
 });
